@@ -1,7 +1,7 @@
-name: My Site
-owner: My Name
+name: Amelia's World
+owner: Amelia Rodriguez
 
-baseurl: "/github-pages-workshop" # the base url of your site
+baseurl: "/github-pages-verti" # the base url of your site
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /blog/:title
 

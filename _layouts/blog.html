@@ -1,14 +1,123 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-    <head>
-        <title>TODO blog list</title>
-    </head>
-    <body>
-        <h1>TODO blog list</h1>
-        <ul>
-            {% for post in site.posts %}
-            <li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a> {{ post.date | date: '%b %e, %Y' }} {% for category in post.categories %}{{category}} {% endfor %}</li>
-            {% endfor %}
-        </ul>
-    </body>
+
+<head>
+	<title>{{site.name}}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css" />
+</head>
+
+<body class="is-preload homepage">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header-wrapper">
+
+			<header id="header" class="container">
+				<!-- Logo -->
+				<div id="logo">
+					<h1><a href="{{site.baseurl}}/">{{site.name}}</a></h1>
+				</div>
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="{{site.baseurl}}/">Home</a></li>
+						<li class="current"><a href="{{site.baseurl}}/blog/">Blog</a></li>
+						<li><a href="{{site.baseurl}}/projects/">Projects</a></li>
+						<li><a href="{{site.baseurl}}/about/">About Me</a></li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+
+		<div id="features-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2>{{page.title}}</h2>
+					</div>
+				</div>
+				<div class="row">
+                    {% for post in site.posts %}
+					<!-- blog box starts here -->
+					{% case forloop.index %}
+                    {% when 1 %}
+                    <div class="col-12 col-12-small">
+                    {% when 2 or 3 %}
+                    <div class="col-6 col-12-small">
+                    {% else %}
+                    <div class="col-4 col-12-small">
+                    {% endcase %}
+						<section class="box feature">
+							<a href="{{site.baseurl}}{{post.url}}" class="image featured"><img src="{{site.baseurl}}/assets/images/{{post.main_image}}"
+									alt="Project Image" /></a>
+							<div class="inner">
+								<header>
+									<h2>{{post.title}}</h2>
+									<em>{{ post.date | date: '%b %e, %Y' }} in {% for category in post.categories %}{{category}} {% endfor %}</em>
+									<p>{{post.subtitle}}</p>
+								</header>
+							</div>
+						</section>
+                    </div>
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div id="footer-wrapper">
+			<footer id="footer" class="container">
+				<div class="row">
+					<div class="col-3 col-6-medium col-12-small">
+
+						<!-- Contact -->
+						<section class="widget contact last">
+							<ul>
+								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+								</li>
+								<li><a href="#" class="icon brands fa-facebook-f"><span
+											class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram"><span
+											class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a>
+								</li>
+								<li><a href="#" class="icon brands fa-pinterest"><span
+											class="label">Pinterest</span></a></li>
+							</ul>
+						</section>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div id="copyright">
+							<ul class="menu">
+								<li>&copy; {{site.owner}}. All rights reserved</li>
+								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+
+	<script src="{{site.baseurl}}/assets/js/jquery.min.js"></script>
+	<script src="{{site.baseurl}}/assets/js/jquery.dropotron.min.js"></script>
+	<script src="{{site.baseurl}}/assets/js/browser.min.js"></script>
+	<script src="{{site.baseurl}}/assets/js/breakpoints.min.js"></script>
+	<script src="{{site.baseurl}}/assets/js/util.js"></script>
+	<script src="{{site.baseurl}}/assets/js/main.js"></script>
+
+</body>
+
 </html>
